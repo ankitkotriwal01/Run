@@ -1,0 +1,21 @@
+<!-- myapp/templates/streamlit_template.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Django + Streamlit Integration</title>
+</head>
+<body>
+<div>
+    <h1>Welcome to the Call Option Value Calculator</h1>
+    <form method="post" action="{% url 'streamlit_view' %}">
+        {% csrf_token %}
+        <label for="S">Current Stock Price (S):</label>
+        <input type="number" name="S" step="0.01" value="100.0" required><br>
+
+        <!-- Include other input fields as needed -->
+
+        <button type="submit">Calculate</button>
+    </form>
+</div>
+</body>
+</html>

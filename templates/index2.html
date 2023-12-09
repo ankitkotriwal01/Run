@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resume and Cover Letter Generator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+
+    form {
+      max-width: 600px;
+      margin: 0 auto;
+      background: #f4f4f4;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      color: #333;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 16px;
+      box-sizing: border-box;
+    }
+
+    button {
+      background-color: #4caf50;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+  </style>
+</head>
+<body>
+<h1>Resume Generator</h1>
+<form action="{{ url_for('generate_resume') }}" method="post">
+
+<!-- Personal Information -->
+  <label for="full_name">Full Name:</label>
+  <input type="text" id="full_name" name="full_name" required>
+
+  <label for="phone_number">Phone Number:</label>
+  <input type="tel" id="phone_number" name="phone_number" required>
+
+  <label for="email_address">Email Address:</label>
+  <input type="email" id="email_address" name="email_address" required>
+
+  <label for="linkedin_profile">LinkedIn Profile:</label>
+  <input type="url" id="linkedin_profile" name="linkedin_profile">
+
+  <label for="professional_website">Professional Website:</label>
+  <input type="url" id="professional_website" name="professional_website">
+
+  <!-- Summary or Objective -->
+  <label for="summary">Summary or Objective:</label>
+  <textarea id="summary" name="summary" rows="4" cols="50" required></textarea>
+
+  <!-- Professional Experience -->
+  <label for="experiences">Professional Experience:</label>
+  <textarea id="experiences" name="experiences" rows="4" cols="50" required></textarea>
+
+  <!-- Education -->
+  <label for="educations">Education:</label>
+  <textarea id="educations" name="educations" rows="4" cols="50" required></textarea>
+
+  <!-- Skills -->
+  <label for="skills">Skills:</label>
+  <textarea id="skills" name="skills" rows="4" cols="50" required></textarea>
+
+  <!-- Certifications -->
+  <label for="certifications">Certifications:</label>
+  <textarea id="certifications" name="certifications" rows="4" cols="50" required></textarea>
+
+  <!-- Projects -->
+  <label for="projects">Projects:</label>
+  <textarea id="projects" name="projects" rows="4" cols="50" required></textarea>
+
+  <!-- Achievements and Awards -->
+  <label for="achievements_and_awards">Achievements and Awards:</label>
+  <textarea id="achievements_and_awards" name="achievements_and_awards" rows="4" cols="50" required></textarea>
+
+  <!-- Languages -->
+  <label for="languages">Languages:</label>
+  <textarea id="languages" name="languages" rows="4" cols="50" required></textarea>
+
+  <!-- Volunteer Work -->
+  <label for="volunteer_work">Volunteer Work:</label>
+  <textarea id="volunteer_work" name="volunteer_work" rows="4" cols="50" required></textarea>
+
+  <!-- Professional Memberships -->
+  <label for="professional_memberships">Professional Memberships:</label>
+  <textarea id="professional_memberships" name="professional_memberships" rows="4" cols="50" required></textarea>
+
+  <!-- Hobbies and Interests -->
+  <label for="hobbies_and_interests">Hobbies and Interests:</label>
+  <textarea id="hobbies_and_interests" name="hobbies_and_interests" rows="4" cols="50" required></textarea>
+
+  <button type="submit">Generate Resume</button>
+</form>
+
+<h1>Cover Letter Generator</h1>
+<form action="{{ url_for('generate_cover_letter') }}" method="post">
+
+<!-- Personal Information -->
+    <label for="your_full_name">Your Full Name:</label>
+    <input type="text" id="your_full_name" name="your_full_name" required>
+
+    <label for="your_address">Your Address:</label>
+    <textarea id="your_address" name="your_address" rows="4" cols="50" required></textarea>
+
+    <label for="city_state_zip">City, State, ZIP Code:</label>
+    <input type="text" id="city_state_zip" name="city_state_zip" required>
+
+    <label for="your_email_address">Your Email Address:</label>
+    <input type="email" id="your_email_address" name="your_email_address" required>
+
+    <label for="your_phone_number">Your Phone Number:</label>
+    <input type="tel" id="your_phone_number" name="your_phone_number" required>
+
+    <label for="current_date">Date:</label>
+    <input type="date" id="current_date" name="current_date" required>
+
+    <!-- Hiring Information -->
+    <label for="hiring_manager_name">Hiring Manager's Name:</label>
+    <input type="text" id="hiring_manager_name" name="hiring_manager_name">
+
+    <label for="company_address">Company Address:</label>
+    <textarea id="company_address" name="company_address" rows="4" cols="50" required></textarea>
+
+    <!-- Position Information -->
+    <label for="position_applying_for">Position Applying For:</label>
+    <input type="text" id="position_applying_for" name="position_applying_for" required>
+
+    <label for="company_name">Company Name:</label>
+    <input type="text" id="company_name" name="company_name" required>
+
+    <!-- Cover Letter Content -->
+    <label for="relevant_qualifications">Relevant Qualifications:</label>
+    <textarea id="relevant_qualifications" name="relevant_qualifications" rows="4" cols="50" required></textarea>
+
+    <label for="specific_achievement">Specific Achievement:</label>
+    <textarea id="specific_achievement" name="specific_achievement" rows="4" cols="50" required></textarea>
+
+    <label for="previous_company">Previous Company:</label>
+    <input type="text" id="previous_company" name="previous_company" required>
+
+    <label for="relevant_skills">Relevant Skills:</label>
+    <textarea id="relevant_skills" name="relevant_skills" rows="4" cols="50" required></textarea>
+
+    <label for="specific_company_values">Specific Company Values:</label>
+    <textarea id="specific_company_values" name="specific_company_values" rows="4" cols="50" required></textarea>
+
+    <label for="recent_company_accomplishments">Recent Company Accomplishments:</label>
+    <textarea id="recent_company_accomplishments" name="recent_company_accomplishments" rows="4" cols="50" required></textarea>
+
+    <label for="additional_company_insights">Additional Company Insights:</label>
+    <textarea id="additional_company_insights" name="additional_company_insights" rows="4" cols="50" required></textarea>
+
+    <button type="submit">Generate Cover Letter</button>
+  </form>
+  </body>
+  </html>
+

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ full_name }} - Modern Resume</title>
+  <style>
+    body {
+        font-family: 'Arial', sans-serif;
+        background-color: #f5f5f5;
+        color: #333;
+        margin: 0;
+        padding: 0;
+    }
+
+    .container {
+        max-width: 800px;
+        margin: 50px auto;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+        color: #333;
+        text-align: center;
+    }
+
+    section {
+        margin-bottom: 20px;
+    }
+
+    h2 {
+        color: #4caf50;
+        border-bottom: 2px solid #4caf50;
+        padding-bottom: 5px;
+    }
+
+    p {
+        margin: 0;
+    }
+
+    ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    li {
+        margin-bottom: 5px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h1>{{ full_name }}</h1>
+
+  <section>
+    <h2>Summary:</h2>
+    <p>{{ summary }}</p>
+  </section>
+
+  <section>
+    <h2>Professional Experience:</h2>
+    {% for experience in experiences %}
+    <article>
+      <h3>{{ experience.job_title }} - {{ experience.company_name }}</h3>
+      <p>Location: {{ experience.location }}</p>
+      <p>Dates: {{ experience.start_date }} - {{ experience.end_date }}</p>
+      <ul>
+        {% for responsibility in experience.responsibilities %}
+        <li>{{ responsibility }}</li>
+        {% endfor %}
+      </ul>
+    </article>
+    {% endfor %}
+  </section>
+
+  <section>
+    <h2>Education:</h2>
+    {% for education in educations %}
+    <article>
+      <h3>{{ education.degree }} - {{ education.institution }}</h3>
+      <p>Location: {{ education.location }}</p>
+      <p>Dates: {{ education.start_date }} - {{ education.end_date }}</p>
+    </article>
+    {% endfor %}
+  </section>
+
+  <section>
+    <h2>Skills:</h2>
+    <ul>
+      {% for skill in skills %}
+      <li>{{ skill }}</li>
+      {% endfor %}
+    </ul>
+  </section>
+
+  <section>
+    <h2>Certifications:</h2>
+    <ul>
+      {% for certification in certifications %}
+      <li>{{ certification.name }} - {{ certification.date }}</li>
+      {% endfor %}
+    </ul>
+  </section>
+
+  <section>
+    <h2>Projects:</h2>
+    {% for project in projects %}
+    <article>
+      <h3>{{ project.name }}</h3>
+      <p>{{ project.description }}</p>
+    </article>
+    {% endfor %}
+  </section>
+
+  <section>
+    <h2>Achievements and Awards:</h2>
+    <p>{{ achievements_and_awards }}</p>
+  </section>
+
+  <section>
+    <h2>Languages:</h2>
+    <p>{{ languages }}</p>
+  </section>
+
+  <section>
+    <h2>Volunteer Work:</h2>
+    {% for volunteer in volunteer_work %}
+    <article>
+      <h3>{{ volunteer.organization }} - {{ volunteer.role }}</h3>
+      <p>Dates: {{ volunteer.dates }}</p>
+    </article>
+    {% endfor %}
+  </section>
+
+  <section>
+    <h2>Professional Memberships:</h2>
+    <ul>
+      {% for membership in professional_memberships %}
+      <li>{{ membership }}</li>
+      {% endfor %}
+    </ul>
+  </section>
+
+  <section>
+    <h2>Hobbies and Interests:</h2>
+    <p>{{ hobbies_and_interests }}</p>
+  </section>
+
+  <section>
+    <h2>References:</h2>
+    <p>References available upon request.</p>
+  </section>
+
+
+</div>
+
+</body>
+</html>
